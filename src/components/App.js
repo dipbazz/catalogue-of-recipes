@@ -1,10 +1,10 @@
 import '../App.css';
-import Categories from '../containers/Categories';
+import Meals from '../containers/Meals';
 
 function App() {
   return (
     <div className="App">
-      <Categories />
+      <Meals />
     </div>
   );
 }

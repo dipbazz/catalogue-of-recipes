@@ -1,0 +1,16 @@
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import App from './components/App';
+import Header from './components/Header';
+import Categories from './containers/Categories';
+
+const Routes = () => (
+  <BrowserRouter>
+    <Header />
+    <Switch>
+      <Route path="/" component={App} exact />
+      <Route path="/categories" component={Categories} exact />
+    </Switch>
+  </BrowserRouter>
+);
+
+export default Routes;
