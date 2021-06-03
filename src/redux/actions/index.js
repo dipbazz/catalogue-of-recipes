@@ -1,4 +1,6 @@
-import { LOADING, SUCCESS, ERROR } from './actionTypes';
+import {
+  LOADING, SUCCESS, ERROR,
+} from './actionTypes';
 import API from '../../config/config';
 import loadMeals from '../../API/api';
 
