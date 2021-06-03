@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
-import categories from './categories';
-import meals from './meals';
+import categoriesReducer from './categories';
+import mealsReducer from './meals';
 
 const meal = (state = {}, action) => {
   switch (action.type) {
@@ -10,8 +10,8 @@ const meal = (state = {}, action) => {
 };
 
 const rootReducer = combineReducers({
-  categories,
-  meals,
+  categories: categoriesReducer,
+  meals: mealsReducer,
   meal,
 });
 

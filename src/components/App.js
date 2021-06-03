@@ -1,4 +1,4 @@
-import '../App.css';
+import '../styles/App.css';
 import Meals from '../containers/Meals';
 
 function App() {

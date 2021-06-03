@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import './styles/index.css';
 import { Provider } from 'react-redux';
 import reportWebVitals from './reportWebVitals';
-import configureStore from './configureStore';
-import Routes from './Routes';
+import configureStore from './redux/configureStore';
+import Routes from './config/Routes';
 
 const state = {
   categories: [
@@ -81,45 +81,6 @@ const state = {
       strCategoryDescription: 'The domestic goat or simply goat (Capra aegagrus hircus) is a subspecies of C. aegagrus domesticated from the wild goat of Southwest Asia and Eastern Europe. The goat is a member of the animal family Bovidae and the subfamily Caprinae, meaning it is closely related to the sheep. There are over 300 distinct breeds of goat. Goats are one of the oldest domesticated species of animal, and have been used for milk, meat, fur and skins across much of the world. Milk from goats is often turned into goat cheese.',
     },
   ],
-  meals: {
-    meals: [
-      {
-        strMeal: 'Breakfast Potatoes',
-        strMealThumb: 'https://www.themealdb.com/images/media/meals/1550441882.jpg',
-        idMeal: '52965',
-      },
-      {
-        strMeal: 'English Breakfast',
-        strMealThumb: 'https://www.themealdb.com/images/media/meals/utxryw1511721587.jpg',
-        idMeal: '52895',
-      },
-      {
-        strMeal: 'Fruit and Cream Cheese Breakfast Pastries',
-        strMealThumb: 'https://www.themealdb.com/images/media/meals/1543774956.jpg',
-        idMeal: '52957',
-      },
-      {
-        strMeal: 'Full English Breakfast',
-        strMealThumb: 'https://www.themealdb.com/images/media/meals/sqrtwu1511721265.jpg',
-        idMeal: '52896',
-      },
-      {
-        strMeal: 'Home-made Mandazi',
-        strMealThumb: 'https://www.themealdb.com/images/media/meals/thazgm1555350962.jpg',
-        idMeal: '52967',
-      },
-      {
-        strMeal: 'Salmon Eggs Eggs Benedict',
-        strMealThumb: 'https://www.themealdb.com/images/media/meals/1550440197.jpg',
-        idMeal: '52962',
-      },
-      {
-        strMeal: 'Smoked Haddock Kedgeree',
-        strMealThumb: 'https://www.themealdb.com/images/media/meals/1550441275.jpg',
-        idMeal: '52964',
-      },
-    ],
-  },
   meal: {
     idMeal: '52965',
     strMeal: 'Breakfast Potatoes',
