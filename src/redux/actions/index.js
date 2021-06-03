@@ -1,7 +1,6 @@
 import {
   LOADING, SUCCESS, ERROR,
 } from './actionTypes';
-import API from '../../config/config';
 import loadMeals from '../../API/api';
 
 const loadingMeals = () => ({
@@ -20,10 +19,10 @@ const errorMeals = (error) => ({
 
 const fetchMealsByCategory = (category) => (dispatch) => {
   dispatch(loadingMeals);
-  const response = loadMeals(`${API.BASE_URL}/${API.FILTER_ENDPOINT}?c=${category}`);
+  const response = loadMeals(category);
   response
     .then((data) => dispatch(successMeals(data.meals)))
-    .catch((error) => dispatch(errorMeals(error)));
+    .catch(() => dispatch(errorMeals('Error while fetching data.')));
 };
 
 export default fetchMealsByCategory;

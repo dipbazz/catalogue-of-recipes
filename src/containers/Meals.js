@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { useEffect } from 'react';
+import * as actionsType from '../redux/actions/actionTypes';
 import Meal from '../components/Meal';
 import fetchMealsByCategory from '../redux/actions';
 
@@ -8,6 +9,19 @@ const Meals = ({ meals, dispatch }) => {
   useEffect(() => {
     dispatch(fetchMealsByCategory('beef'));
   }, []);
+
+  if (meals.status === actionsType.LOADING) {
+    return <div>Loading ...</div>;
+  }
+
+  if (meals.status === actionsType.ERROR) {
+    return (
+      <div>
+        Error:
+        {meals.error}
+      </div>
+    );
+  }
 
   return (
     <div>

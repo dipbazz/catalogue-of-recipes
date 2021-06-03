@@ -21,6 +21,7 @@ const mealsReducer = (state = { meals: [], status: IDLE, error: null }, action) 
         ...state,
         status: SUCCESS,
         meals: action.data,
+        error: null,
       };
     default:
       return state;
