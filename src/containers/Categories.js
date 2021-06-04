@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Category from '../components/Category';
 
 const Categories = ({ categories }) => (
-  <div>
+  <div className="flex">
     {categories.map((category) => <Category key={category.idCategory} category={category} />)}
   </div>
 );

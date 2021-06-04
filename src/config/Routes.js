@@ -11,6 +11,7 @@ const Routes = () => (
       <Route path="/" component={App} exact />
       <Route path="/meal/:id" component={MealDetail} exact />
       <Route path="/categories" component={Categories} exact />
+      <Route path="/meals/:categoryType" component={App} exact />
     </Switch>
   </BrowserRouter>
 );

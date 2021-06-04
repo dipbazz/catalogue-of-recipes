@@ -59,4 +59,11 @@ const fetchMealById = (id) => (dispatch) => {
     .catch(() => dispatch(errorMeal('Error while fetching data.')));
 };
 
-export { fetchMealsByCategory, fetchMealById, searchMeals };
+const changeCategory = (category) => ({
+  type: actionsType.CHANGE_CATEGORY,
+  category,
+});
+
+export {
+  fetchMealsByCategory, fetchMealById, searchMeals, changeCategory,
+};

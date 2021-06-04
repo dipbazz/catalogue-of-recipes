@@ -7,3 +7,5 @@ export const LOADING_MEAL = 'loading_meal';
 export const ERROR_MEAL = 'error_meal';
 export const SUCCESS_MEAL = 'success_meal';
 export const IDLE_MEAL = 'idle_meal';
+
+export const CHANGE_CATEGORY = 'change_category';

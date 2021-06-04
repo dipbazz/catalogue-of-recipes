@@ -47,7 +47,6 @@ const MealDetail = ({ meal: { status, meal, error }, dispatch }) => {
         ingrediants.push(element);
       }
     }
-    console.log(ingrediants);
     return ingrediants;
   };
 

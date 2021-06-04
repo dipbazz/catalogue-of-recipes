@@ -1,16 +1,22 @@
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import * as actionsType from '../redux/actions/actionTypes';
 import Meal from '../components/Meal';
-import { fetchMealsByCategory } from '../redux/actions';
+import { changeCategory, fetchMealsByCategory } from '../redux/actions';
 
-const Meals = ({ meals: { meals, status, error }, dispatch }) => {
+const Meals = ({
+  meals: { meals, status, error }, fetchMealsByCategory, category, changeCategory,
+}) => {
+  const { categoryType } = useParams();
+
   useEffect(() => {
-    if (status === actionsType.IDLE_MEALS) {
-      dispatch(fetchMealsByCategory('beef'));
+    changeCategory(categoryType);
+    if (status === actionsType.IDLE_MEALS || categoryType) {
+      fetchMealsByCategory(categoryType || 'beef');
     }
-  }, []);
+  }, [category]);
 
   if (status === actionsType.LOADING_MEALS) {
     return <div>Loading ...</div>;
@@ -32,17 +38,29 @@ const Meals = ({ meals: { meals, status, error }, dispatch }) => {
   );
 };
 
+Meals.defaultProps = {
+  category: 'Beef',
+};
+
 Meals.propTypes = {
   meals: PropTypes.shape({
     status: PropTypes.string.isRequired,
     error: PropTypes.string,
     meals: PropTypes.arrayOf(PropTypes.objectOf(PropTypes.string)),
   }).isRequired,
-  dispatch: PropTypes.func.isRequired,
+  category: PropTypes.string,
+  changeCategory: PropTypes.func.isRequired,
+  fetchMealsByCategory: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
   meals: state.meals,
+  category: state.category,
 });
 
-export default connect(mapStateToProps)(Meals);
+const mapDispatchToProps = (dispatch) => ({
+  changeCategory: (category) => dispatch(changeCategory(category)),
+  fetchMealsByCategory: (category) => dispatch(fetchMealsByCategory(category)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Meals);
