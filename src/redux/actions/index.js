@@ -1,19 +1,17 @@
-import {
-  LOADING, SUCCESS, ERROR,
-} from './actionTypes';
-import { fetchMeals, fetchMeal } from '../../API/api';
+import * as actionsType from './actionTypes';
+import { fetchMeals, fetchMeal, fetchSearchMeals } from '../../API/api';
 
 const loadingMeals = () => ({
-  type: LOADING,
+  type: actionsType.LOADING_MEALS,
 });
 
 const successMeals = (data) => ({
-  type: SUCCESS,
+  type: actionsType.SUCCESS_MEALS,
   data,
 });
 
 const errorMeals = (error) => ({
-  type: ERROR,
+  type: actionsType.ERROR_MEALS,
   error,
 });
 
@@ -26,21 +24,24 @@ const fetchMealsByCategory = (category) => (dispatch) => {
 };
 
 const searchMeals = (query) => (dispatch) => {
-  console.log('searching meal', query);
   dispatch(loadingMeals);
+  const response = fetchSearchMeals(query);
+  response
+    .then((data) => dispatch(successMeals(data.meals)))
+    .catch(() => dispatch(errorMeals('Error while fetching data.')));
 };
 
 const loadingMeal = () => ({
-  type: LOADING,
+  type: actionsType.LOADING_MEAL,
 });
 
 const successMeal = (data) => ({
-  type: SUCCESS,
+  type: actionsType.SUCCESS_MEAL,
   data,
 });
 
 const errorMeal = (error) => ({
-  type: ERROR,
+  type: actionsType.ERROR_MEAL,
   error,
 });
 

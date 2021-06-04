@@ -1,7 +1,7 @@
 import API from '../config/config';
 
 const fetchMeals = async (category) => {
-  console.log('fetching data ...');
+  console.log('fetching meals data ...');
   const url = `${API.BASE_URL}/${API.FILTER_ENDPOINT}/?c=${category}`;
   const response = await fetch(url);
 
@@ -14,13 +14,12 @@ const fetchMeals = async (category) => {
 };
 
 const fetchSearchMeals = async (query) => {
-  console.log('fetching data ...');
+  console.log('fetching search meals data ...');
   const url = `${API.BASE_URL}/${API.SEARCH_ENDPOINT}/?s=${query}`;
   const response = await fetch(url);
 
   if (response.status === 200) {
     const data = await response.json();
-    console.log(data);
     return data;
   }
 
@@ -34,7 +33,6 @@ const fetchMeal = async (id) => {
 
   if (response.status === 200) {
     const data = await response.json();
-    console.log(data);
     return data;
   }
 

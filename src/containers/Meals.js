@@ -7,16 +7,16 @@ import { fetchMealsByCategory } from '../redux/actions';
 
 const Meals = ({ meals, dispatch }) => {
   useEffect(() => {
-    dispatch(fetchMealsByCategory('beef'));
+    if (meals.status === actionsType.IDLE_MEALS) {
+      dispatch(fetchMealsByCategory('beef'));
+    }
   }, []);
 
-  console.log(meals.status);
-
-  if (meals.status === actionsType.LOADING) {
+  if (meals.status === actionsType.LOADING_MEALS) {
     return <div>Loading ...</div>;
   }
 
-  if (meals.status === actionsType.ERROR) {
+  if (meals.status === actionsType.ERROR_MEALS) {
     return (
       <div>
         Error:

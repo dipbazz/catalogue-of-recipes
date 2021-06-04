@@ -1,22 +1,22 @@
 import * as actionsType from '../actions/actionTypes';
 
-const mealReducer = (state = { meal: {}, status: actionsType.IDLE, error: null }, action) => {
+const mealReducer = (state = { meal: {}, status: actionsType.IDLE_MEAL, error: null }, action) => {
   switch (action.type) {
-    case actionsType.LOADING:
+    case actionsType.LOADING_MEAL:
       return {
         ...state,
-        status: actionsType.LOADING,
+        status: actionsType.LOADING_MEAL,
       };
-    case actionsType.ERROR:
+    case actionsType.ERROR_MEAL:
       return {
         ...state,
-        status: actionsType.ERROR,
+        status: actionsType.ERROR_MEAL,
         error: action.error,
       };
-    case actionsType.SUCCESS:
+    case actionsType.SUCCESS_MEAL:
       return {
         ...state,
-        status: actionsType.SUCCESS,
+        status: actionsType.SUCCESS_MEAL,
         meal: action.data,
         error: null,
       };

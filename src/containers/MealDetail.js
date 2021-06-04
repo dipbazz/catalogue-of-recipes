@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { useEffect } from 'react';
 import { fetchMealById } from '../redux/actions';
-import { ERROR, LOADING } from '../redux/actions/actionTypes';
+import * as actionsType from '../redux/actions/actionTypes';
 
 const MealDetail = ({ meal, dispatch }) => {
   const { id } = useParams();
@@ -12,11 +12,11 @@ const MealDetail = ({ meal, dispatch }) => {
     dispatch(fetchMealById(id));
   }, []);
 
-  if (meal.status === LOADING) {
+  if (meal.status === actionsType.LOADING_MEAL) {
     return <div>Loading ...</div>;
   }
 
-  if (meal.status === ERROR) {
+  if (meal.status === actionsType.ERROR_MEAL) {
     return (
       <div>
         Error:
@@ -42,11 +42,8 @@ MealDetail.propTypes = {
   dispatch: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = (state) => {
-  console.log(state);
-  return {
-    meal: state.meal,
-  };
-};
+const mapStateToProps = (state) => ({
+  meal: state.meal,
+});
 
 export default connect(mapStateToProps)(MealDetail);
