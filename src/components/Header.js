@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import Search from '../containers/Search';
 
 const Header = () => (
   <nav>
@@ -10,6 +11,8 @@ const Header = () => (
         <Link to="/categories">Categories</Link>
       </li>
     </ul>
+
+    <Search />
   </nav>
 );
 
