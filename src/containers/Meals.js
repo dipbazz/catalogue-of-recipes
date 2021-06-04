@@ -5,29 +5,29 @@ import * as actionsType from '../redux/actions/actionTypes';
 import Meal from '../components/Meal';
 import { fetchMealsByCategory } from '../redux/actions';
 
-const Meals = ({ meals, dispatch }) => {
+const Meals = ({ meals: { meals, status, error }, dispatch }) => {
   useEffect(() => {
-    if (meals.status === actionsType.IDLE_MEALS) {
+    if (status === actionsType.IDLE_MEALS) {
       dispatch(fetchMealsByCategory('beef'));
     }
   }, []);
 
-  if (meals.status === actionsType.LOADING_MEALS) {
+  if (status === actionsType.LOADING_MEALS) {
     return <div>Loading ...</div>;
   }
 
-  if (meals.status === actionsType.ERROR_MEALS) {
+  if (status === actionsType.ERROR_MEALS) {
     return (
       <div>
         Error:
-        {meals.error}
+        {error}
       </div>
     );
   }
 
   return (
     <div className="flex">
-      {meals.meals.map((meal) => <Meal key={meal.idMeal} meal={meal} />)}
+      {meals.map((meal) => <Meal key={meal.idMeal} meal={meal} />)}
     </div>
   );
 };

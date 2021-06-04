@@ -52,11 +52,14 @@ const MealDetail = ({ meal: { status, meal, error }, dispatch }) => {
   };
 
   return (
-    <div className="flex">
-      <img src={meal.strMealThumb} alt={meal.strMeal} />
-      <ul>
-        {renderIngrediants(meal)}
-      </ul>
+    <div>
+      <h3>{meal.strMeal}</h3>
+      <div className="flex">
+        <img src={meal.strMealThumb} alt={meal.strMeal} />
+        <ul>
+          {renderIngrediants(meal)}
+        </ul>
+      </div>
     </div>
   );
 };

@@ -27,7 +27,13 @@ const searchMeals = (query) => (dispatch) => {
   dispatch(loadingMeals());
   const response = fetchSearchMeals(query);
   response
-    .then((data) => dispatch(successMeals(data.meals)))
+    .then((data) => {
+      if (data.meals) {
+        dispatch(successMeals(data.meals));
+      } else {
+        dispatch(errorMeals(`There is no meal with name: ${query}`));
+      }
+    })
     .catch(() => dispatch(errorMeals('Error while fetching data.')));
 };
 
