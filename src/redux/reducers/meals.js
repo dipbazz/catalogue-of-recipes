@@ -3,7 +3,6 @@ import {
 } from '../actions/actionTypes';
 
 const mealsReducer = (state = { meals: [], status: IDLE, error: null }, action) => {
-  console.log(state);
   switch (action.type) {
     case LOADING:
       return {

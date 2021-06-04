@@ -3,12 +3,14 @@ import PropTypes from 'prop-types';
 import { useEffect } from 'react';
 import * as actionsType from '../redux/actions/actionTypes';
 import Meal from '../components/Meal';
-import fetchMealsByCategory from '../redux/actions';
+import { fetchMealsByCategory } from '../redux/actions';
 
 const Meals = ({ meals, dispatch }) => {
   useEffect(() => {
     dispatch(fetchMealsByCategory('beef'));
   }, []);
+
+  console.log(meals.status);
 
   if (meals.status === actionsType.LOADING) {
     return <div>Loading ...</div>;
@@ -32,7 +34,7 @@ const Meals = ({ meals, dispatch }) => {
 
 Meals.propTypes = {
   meals: PropTypes.arrayOf(PropTypes.object).isRequired,
-  dispatch: PropTypes.objectOf(PropTypes.object).isRequired,
+  dispatch: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
