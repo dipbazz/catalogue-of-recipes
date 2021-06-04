@@ -5,31 +5,59 @@ import { useEffect } from 'react';
 import { fetchMealById } from '../redux/actions';
 import * as actionsType from '../redux/actions/actionTypes';
 
-const MealDetail = ({ meal, dispatch }) => {
+const MealDetail = ({ meal: { status, meal, error }, dispatch }) => {
   const { id } = useParams();
 
   useEffect(() => {
-    dispatch(fetchMealById(id));
+    if (id !== meal.idMeal) {
+      dispatch(fetchMealById(id));
+    }
   }, []);
 
-  if (meal.status === actionsType.LOADING_MEAL) {
+  if (status === actionsType.LOADING_MEAL) {
     return <div>Loading ...</div>;
   }
 
-  if (meal.status === actionsType.ERROR_MEAL) {
+  if (status === actionsType.ERROR_MEAL) {
     return (
       <div>
         Error:
-        {meal.error}
+        {error}
       </div>
     );
   }
 
+  const renderIngrediants = (meal) => {
+    const ingrediants = [];
+    for (let index = 1; index <= 20; index += 1) {
+      const ingrediant = meal[`strIngredient${index}`];
+      if (ingrediant) {
+        const measure = meal[`strMeasure${index}`];
+        const element = (
+          <li key={index}>
+            <span>
+              {measure}
+            </span>
+            <span>-</span>
+            <span>
+              {ingrediant}
+            </span>
+          </li>
+        );
+        ingrediants.push(element);
+      }
+    }
+    console.log(ingrediants);
+    return ingrediants;
+  };
+
   return (
-    <>
-      This is a meal detail
-      {meal.meal.strMeal}
-    </>
+    <div className="flex">
+      <img src={meal.strMealThumb} alt={meal.strMeal} />
+      <ul>
+        {renderIngrediants(meal)}
+      </ul>
+    </div>
   );
 };
 

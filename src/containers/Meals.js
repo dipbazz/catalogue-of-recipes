@@ -26,14 +26,18 @@ const Meals = ({ meals, dispatch }) => {
   }
 
   return (
-    <div>
+    <div className="flex">
       {meals.meals.map((meal) => <Meal key={meal.idMeal} meal={meal} />)}
     </div>
   );
 };
 
 Meals.propTypes = {
-  meals: PropTypes.arrayOf(PropTypes.object).isRequired,
+  meals: PropTypes.shape({
+    status: PropTypes.string.isRequired,
+    error: PropTypes.string,
+    meals: PropTypes.arrayOf(PropTypes.objectOf(PropTypes.string)),
+  }).isRequired,
   dispatch: PropTypes.func.isRequired,
 };
 

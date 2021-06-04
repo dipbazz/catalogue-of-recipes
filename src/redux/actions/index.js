@@ -24,7 +24,7 @@ const fetchMealsByCategory = (category) => (dispatch) => {
 };
 
 const searchMeals = (query) => (dispatch) => {
-  dispatch(loadingMeals);
+  dispatch(loadingMeals());
   const response = fetchSearchMeals(query);
   response
     .then((data) => dispatch(successMeals(data.meals)))
