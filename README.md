@@ -59,7 +59,7 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 
 This project is hosted on netlify.
 
-[Live demo link](https://bookstore-cms-db.netlify.app/)
+[Live demo link](https://recipes-catalog.netlify.app/)
 
 ## Built With
 
