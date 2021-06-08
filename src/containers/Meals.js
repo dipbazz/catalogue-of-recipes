@@ -2,9 +2,13 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import classNames from 'classnames';
 import * as actionsType from '../redux/actions/actionTypes';
 import Meal from '../components/Meal';
 import { changeCategory, fetchMealsByCategory } from '../redux/actions';
+import grid from '../styles/grid.css';
+
+const cx = classNames.bind(grid);
 
 const Meals = ({
   meals: { meals, status, error }, fetchMealsByCategory, category, changeCategory,
@@ -32,7 +36,7 @@ const Meals = ({
   }
 
   return (
-    <div className="flex">
+    <div className={cx('grid', 'grid-column', 'grid-gap-1/5')}>
       {meals.map((meal) => <Meal key={meal.idMeal} meal={meal} />)}
     </div>
   );

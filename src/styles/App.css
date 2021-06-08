@@ -1,17 +1,3 @@
 .App {
-  text-align: center;
-}
-
-.flex {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.card {
-  width: 250px;
-  margin: 10px;
-}
-
-.card img {
-  width: 100%;
+  padding: 0 50px;
 }

@@ -4,7 +4,7 @@ import './styles/index.css';
 import { Provider } from 'react-redux';
 import reportWebVitals from './reportWebVitals';
 import configureStore from './redux/configureStore';
-import Routes from './config/Routes';
+import App from './App';
 
 const state = {
   categories: [
@@ -88,7 +88,7 @@ const store = configureStore(state);
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <Routes />
+      <App />
     </Provider>
   </React.StrictMode>,
   document.getElementById('root'),

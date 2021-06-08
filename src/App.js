@@ -1,10 +1,10 @@
-import '../styles/App.css';
-import Meals from '../containers/Meals';
+import './styles/App.css';
+import Routes from './config/Routes';
 
 function App() {
   return (
     <div className="App">
-      <Meals />
+      <Routes />
     </div>
   );
 }
