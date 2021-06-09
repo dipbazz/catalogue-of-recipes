@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import card from '../styles/card.css';
 import styles from '../styles/Meal.module.css';
 
-console.log(styles);
 const cx = classNames.bind(card);
 
 const Meal = ({ meal }) => (

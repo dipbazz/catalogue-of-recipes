@@ -1,9 +1,14 @@
 import { useParams } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 import { connect } from 'react-redux';
 import { useEffect } from 'react';
 import { fetchMealById } from '../redux/actions';
 import * as actionsType from '../redux/actions/actionTypes';
+import card from '../styles/card.css';
+import styles from '../styles/MealDetail.module.css';
+
+const cx = classNames.bind(card);
 
 const MealDetail = ({ meal: { status, meal, error }, dispatch }) => {
   const { id } = useParams();
@@ -50,14 +55,38 @@ const MealDetail = ({ meal: { status, meal, error }, dispatch }) => {
     return ingrediants;
   };
 
+  const renderInstructions = (instructions) => {
+    if (instructions) {
+      const list = instructions.split(new RegExp(/\n/)).filter((item) => item.length > 1);
+      return (
+        <ul className={cx(styles.items)}>
+          {/* eslint-disable-next-line */}
+          {list.map((item, index) => <li key={index}>{item}</li>)}
+        </ul>
+      );
+    }
+    return instructions;
+  };
+
   return (
     <div>
-      <h3>{meal.strMeal}</h3>
-      <div className="flex">
-        <img src={meal.strMealThumb} alt={meal.strMeal} />
-        <ul>
-          {renderIngrediants(meal)}
-        </ul>
+      <div className={cx('card-detail')}>
+        <img className={cx('card-img')} src={meal.strMealThumb} alt={meal.strMeal} />
+        <div>
+          <h3 className={cx('card-title')}>{meal.strMeal}</h3>
+          <div className={cx(styles.ingredients)}>
+            <h4 className={cx(styles.heading)}>Ingredients</h4>
+            <ul className={cx(styles.listItem)}>
+              {renderIngrediants(meal)}
+            </ul>
+          </div>
+          <div className={cx(styles.instructions)}>
+            <h4 className={cx(styles.heading)}>Instructions</h4>
+            <div className={cx(styles.instructions)}>
+              {renderInstructions(meal.strInstructions)}
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

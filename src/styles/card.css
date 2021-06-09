@@ -35,3 +35,27 @@
 .card-subtitle ~ .card-title {
   margin-top: 10px;
 }
+
+/* card detail styles */
+.card-detail .card-title {
+  font-size: 16pt;
+  margin-bottom: 20px;
+}
+
+.card-detail .card-img {
+  height: 350px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+@media screen and (min-width: 992px) {
+  .card-detail {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 1.5rem;
+    }
+
+    .card-detail .card-img {
+      height: auto;
+    }
+}
