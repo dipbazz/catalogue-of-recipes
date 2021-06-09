@@ -1,10 +1,10 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# Catalogue of Recepies
+# Catalogue of Recipes
 ---
 ## About
 
-Project to show different recepies with their ingredients and category of recepies using [mealdb](https://www.themealdb.com/api.php) API.
+Project to show different recipes with their ingredients and category of recipes using [mealdb](https://www.themealdb.com/api.php) API.
 
 <!-- ![Screenshot of app](./public/.png) -->
 
@@ -59,7 +59,7 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 
 This project is hosted on netlify.
 
-[Live demo link](https://bookstore-cms-db.netlify.app/)
+[Live demo link](https://recipes-catalog.netlify.app/)
 
 ## Built With
 
