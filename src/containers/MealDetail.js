@@ -14,6 +14,7 @@ const MealDetail = ({ meal: { status, meal, error }, dispatch }) => {
   const { id } = useParams();
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     if (id !== meal.idMeal) {
       dispatch(fetchMealById(id));
     }

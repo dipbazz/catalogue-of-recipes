@@ -50,12 +50,12 @@
 
 @media screen and (min-width: 992px) {
   .card-detail {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      grid-gap: 1.5rem;
-    }
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1.5rem;
+  }
 
-    .card-detail .card-img {
-      height: auto;
-    }
+  .card-detail .card-img {
+    height: auto;
+  }
 }
