@@ -9,9 +9,11 @@ const Category = ({ category }) => (
   <div className={cx('card')}>
     <Link to={`/meals/${category.strCategory}`} className={cx('card-link')}>
       <img className={cx('card-img')} src={category.strCategoryThumb} alt={category.strCategory} />
-      <h3 className={cx('card-title')}>
-        {category.strCategory}
-      </h3>
+      <div className={cx('card-body')}>
+        <h3 className={cx('card-title')}>
+          {category.strCategory}
+        </h3>
+      </div>
     </Link>
   </div>
 );

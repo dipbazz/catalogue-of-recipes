@@ -1,7 +1,11 @@
+import classNames from 'classnames';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { useHistory } from 'react-router-dom';
 import { searchMeals } from '../redux/actions';
+import styles from '../styles/Search.module.css';
+
+const cx = classNames;
 
 const Search = ({ searchMeals }) => {
   const history = useHistory();
@@ -16,7 +20,7 @@ const Search = ({ searchMeals }) => {
 
   return (
     <form onSubmit={handleSearch}>
-      <input type="search" placeholder="Search your recepies" name="search" />
+      <input className={cx(styles['search-input'])} type="search" placeholder="Search your recepies" name="search" />
     </form>
   );
 };
