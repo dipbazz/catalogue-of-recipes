@@ -1,18 +1,24 @@
+import classNames from 'classnames';
 import { Link } from 'react-router-dom';
 import Search from '../containers/Search';
+import styles from '../styles/Header.module.css';
+
+const cx = classNames;
 
 const Header = () => (
-  <nav>
-    <ul>
-      <li>
-        <Link to="/">Home</Link>
+  <nav className={cx(styles.nav)}>
+    <ul className={cx(styles.menus)}>
+      <li className={cx(styles.menu__item)}>
+        <Link className={cx(styles.menu__link)} to="/">Home</Link>
       </li>
-      <li>
-        <Link to="/categories">Categories</Link>
+      <li className={cx(styles.menu__item)}>
+        <Link className={cx(styles.menu__link)} to="/categories">Categories</Link>
       </li>
     </ul>
 
-    <Search />
+    <div className={cx(styles.menu__search)}>
+      <Search />
+    </div>
   </nav>
 );
 
