@@ -47,7 +47,7 @@ test('should match the snapshot', () => {
       <MemoryRouter>
         <Categories />
       </MemoryRouter>
-    </Provider>
+    </Provider>,
   );
 
   expect(container).toMatchSnapshot();

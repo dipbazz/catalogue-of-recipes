@@ -10,3 +10,14 @@ exports[`should test for search snapshot 1`] = `
   />
 </form>
 `;
+
+exports[`should test for search submit event 1`] = `
+<form>
+  <input
+    class="search-input"
+    name="search"
+    placeholder="Search your recepies"
+    type="search"
+  />
+</form>
+`;
