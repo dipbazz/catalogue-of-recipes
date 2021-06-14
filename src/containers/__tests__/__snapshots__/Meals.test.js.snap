@@ -1,7 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`should test for empty meal 1`] = `
-<div
-  class="grid grid-column grid-gap-1/5"
-/>
-`;

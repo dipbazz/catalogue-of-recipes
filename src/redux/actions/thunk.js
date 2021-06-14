@@ -3,34 +3,40 @@ import {
   loadingMeal, errorMeal, successMeal, loadingMeals, errorMeals, successMeals,
 } from './index';
 
-const fetchMealsByCategory = (category) => (dispatch) => {
+const fetchMealsByCategory = (category) => async (dispatch) => {
   dispatch(loadingMeals());
   const response = fetchMeals(category);
-  response
-    .then((data) => dispatch(successMeals(data.meals)))
-    .catch(() => dispatch(errorMeals('Error while fetching data.')));
+  try {
+    const data = await response;
+    return dispatch(successMeals(data.meals));
+  } catch (e) {
+    return dispatch(errorMeals('Error while fetching data.'));
+  }
 };
 
-const searchMeals = (query) => (dispatch) => {
+const searchMeals = (query) => async (dispatch) => {
   dispatch(loadingMeals());
   const response = fetchSearchMeals(query);
-  response
-    .then((data) => {
-      if (data.meals) {
-        dispatch(successMeals(data.meals));
-      } else {
-        dispatch(errorMeals(`There is no meal with name: ${query}`));
-      }
-    })
-    .catch(() => dispatch(errorMeals('Error while fetching data.')));
+  try {
+    const data = await response;
+    if (data.meals) {
+      return dispatch(successMeals(data.meals));
+    }
+    return dispatch(errorMeals(`There is no meal with name: ${query}`));
+  } catch (e) {
+    return dispatch(errorMeals('Error while fetching data.'));
+  }
 };
 
-const fetchMealById = (id) => (dispatch) => {
+const fetchMealById = (id) => async (dispatch) => {
   dispatch(loadingMeal());
   const response = fetchMeal(id);
-  response
-    .then((data) => dispatch(successMeal(data.meals[0])))
-    .catch(() => dispatch(errorMeal('Error while fetching data.')));
+  try {
+    const data = await response;
+    return dispatch(successMeal(data.meals[0]));
+  } catch (e) {
+    return dispatch(errorMeal('Error while fetching data.'));
+  }
 };
 
 export { fetchMealsByCategory, searchMeals, fetchMealById };
