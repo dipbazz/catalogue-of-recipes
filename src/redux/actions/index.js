@@ -1,5 +1,4 @@
 import * as actionsType from './actionTypes';
-import { fetchMeals, fetchMeal, fetchSearchMeals } from '../../API/api';
 
 const loadingMeals = () => ({
   type: actionsType.LOADING_MEALS,
@@ -15,28 +14,6 @@ const errorMeals = (error) => ({
   error,
 });
 
-const fetchMealsByCategory = (category) => (dispatch) => {
-  dispatch(loadingMeals());
-  const response = fetchMeals(category);
-  response
-    .then((data) => dispatch(successMeals(data.meals)))
-    .catch(() => dispatch(errorMeals('Error while fetching data.')));
-};
-
-const searchMeals = (query) => (dispatch) => {
-  dispatch(loadingMeals());
-  const response = fetchSearchMeals(query);
-  response
-    .then((data) => {
-      if (data.meals) {
-        dispatch(successMeals(data.meals));
-      } else {
-        dispatch(errorMeals(`There is no meal with name: ${query}`));
-      }
-    })
-    .catch(() => dispatch(errorMeals('Error while fetching data.')));
-};
-
 const loadingMeal = () => ({
   type: actionsType.LOADING_MEAL,
 });
@@ -51,19 +28,11 @@ const errorMeal = (error) => ({
   error,
 });
 
-const fetchMealById = (id) => (dispatch) => {
-  dispatch(loadingMeal());
-  const response = fetchMeal(id);
-  response
-    .then((data) => dispatch(successMeal(data.meals[0])))
-    .catch(() => dispatch(errorMeal('Error while fetching data.')));
-};
-
 const changeCategory = (category) => ({
   type: actionsType.CHANGE_CATEGORY,
   category,
 });
 
 export {
-  fetchMealsByCategory, fetchMealById, searchMeals, changeCategory,
+  loadingMeals, errorMeals, successMeals, loadingMeal, errorMeal, successMeal, changeCategory,
 };

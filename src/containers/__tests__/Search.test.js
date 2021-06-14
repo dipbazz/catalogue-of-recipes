@@ -1,4 +1,4 @@
-import { fireEvent, render, screen } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import { Provider } from 'react-redux';
 import { MemoryRouter } from 'react-router-dom';
 import ConfigureMockStore from 'redux-mock-store';
@@ -13,7 +13,7 @@ beforeEach(() => {
   store = mockStore({});
 });
 
-test('should test for search snapshot', () => {
+test('should test for search component snapshot', () => {
   const { container } = render(
     <Provider store={store}>
       <MemoryRouter>
@@ -23,23 +23,4 @@ test('should test for search snapshot', () => {
   );
 
   expect(container.firstChild).toMatchSnapshot();
-});
-
-test('should test for search submit event', () => {
-  const handleSearch = jest.fn();
-  const { container } = render(
-    <Provider store={store}>
-      <MemoryRouter>
-        <Search />
-      </MemoryRouter>
-    </Provider>,
-  );
-
-  const form = container.querySelector('form');
-  const { search } = form.elements;
-  search.value = 'Burger';
-  // fireEvent.submit(search);
-  fireEvent.keyDown(search, { key: 'enter', keyCode: 13 })
-
-  expect(handleSearch).toHaveBeenCalledTimes(1);
 });

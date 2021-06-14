@@ -2,7 +2,7 @@ import classNames from 'classnames';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { useHistory } from 'react-router-dom';
-import { searchMeals } from '../redux/actions';
+import { searchMeals } from '../redux/actions/thunk';
 import styles from '../styles/Search.module.css';
 
 const cx = classNames;

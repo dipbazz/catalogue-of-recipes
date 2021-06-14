@@ -1,17 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`should test for search snapshot 1`] = `
-<form>
-  <input
-    class="search-input"
-    name="search"
-    placeholder="Search your recepies"
-    type="search"
-  />
-</form>
-`;
-
-exports[`should test for search submit event 1`] = `
+exports[`should test for search component snapshot 1`] = `
 <form>
   <input
     class="search-input"

@@ -5,7 +5,8 @@ import { useParams } from 'react-router-dom';
 import classNames from 'classnames';
 import * as actionsType from '../redux/actions/actionTypes';
 import Meal from '../components/Meal';
-import { changeCategory, fetchMealsByCategory } from '../redux/actions';
+import { fetchMealsByCategory } from '../redux/actions/thunk';
+import { changeCategory } from '../redux/actions/index';
 import grid from '../styles/grid.css';
 
 const cx = classNames.bind(grid);
