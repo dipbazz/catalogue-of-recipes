@@ -37,7 +37,7 @@ const Meals = ({
 
   return (
     <div className={cx('grid', 'grid-column', 'grid-gap-1/5')}>
-      {meals.map((meal) => <Meal key={meal.idMeal} meal={meal} />)}
+      {meals && meals.map((meal) => <Meal key={meal.idMeal} meal={meal} />)}
     </div>
   );
 };

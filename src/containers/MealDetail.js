@@ -83,7 +83,7 @@ const MealDetail = ({ meal: { status, meal, error }, dispatch }) => {
           </div>
           <div className={cx(styles.instructions)}>
             <h4 className={cx(styles.heading)}>Instructions</h4>
-            <div className={cx(styles.instructions)}>
+            <div data-testid="meal-description" className={cx(styles.instructions)}>
               {renderInstructions(meal.strInstructions)}
             </div>
           </div>

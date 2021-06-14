@@ -8,12 +8,16 @@ const cx = classNames.bind(grid);
 
 const Categories = ({ categories }) => (
   <div className={cx('grid', 'grid-column', 'grid-gap-1/5')}>
-    {categories.map((category) => <Category key={category.idCategory} category={category} />)}
+    {categories ? categories.map((category) => <Category key={category.idCategory} category={category} />) : 'No categories'}
   </div>
 );
 
+Categories.defaultProps = {
+  categories: [],
+};
+
 Categories.propTypes = {
-  categories: PropTypes.arrayOf(PropTypes.object).isRequired,
+  categories: PropTypes.arrayOf(PropTypes.object),
 };
 
 const mapStateToProps = (state) => ({
