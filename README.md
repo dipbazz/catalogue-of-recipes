@@ -6,7 +6,7 @@
 
 Project to show different recipes with their ingredients and category of recipes using [mealdb](https://www.themealdb.com/api.php) API.
 
-<!-- ![Screenshot of app](./public/.png) -->
+![Screenshot of app](./public/app_snapshot.png)
 
 ## Getting the app in the local machine.
 
