@@ -20,7 +20,7 @@ const Search = ({ searchMeals }) => {
 
   return (
     <form onSubmit={handleSearch}>
-      <input className={cx(styles['search-input'])} type="search" placeholder="Search your recepies" name="search" />
+      <input className={cx(styles['search-input'])} type="search" placeholder="Search your recipes" name="search" />
     </form>
   );
 };
